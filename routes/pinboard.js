@@ -12,7 +12,7 @@ const Pinboard_data = config.get('pinboard_feed_url');
 const Pinboard_API_Token = config.get('pinboard_API_TOKEN');
 const Pinboard_API_Endpoint = 'https://api.pinboard.in/v1/posts/recent?auth_token=' + Pinboard_API_Token + '&format=json';
 
-function feed(req, res, data) {
+function feed(req, res) {
     parser(Pinboard_data, function(err, json) {
         if (err) {
             logger.debug(err);
@@ -37,7 +37,6 @@ function getData(req, res) {
         if(err) {
             throw err;
         }
-        logger.debug(data);
         res.setHeader('Content-Type', 'application/json');
         res.end(data);
     });
