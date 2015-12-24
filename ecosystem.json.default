@@ -13,7 +13,7 @@
   ],
   "deploy" : {
     "production" : {
-      "user": "node",
+      "user": "CHANGE_ME",
       "host": "CHANGE_ME",
       "ref": "origin/master",
       "repo": "CHANGE_ME",
