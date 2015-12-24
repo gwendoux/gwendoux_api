@@ -1,0 +1,24 @@
+{
+  "apps": [
+    {
+      "name": "API",
+      "script": "app.js",
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_production" : {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+  "deploy" : {
+    "production" : {
+      "user": "node",
+      "host": "CHANGE_ME",
+      "ref": "origin/master",
+      "repo": "CHANGE_ME",
+      "path": "CHANGE_ME",
+      "post-deploy" : "npm install ; pm2 startOrRestart ecosystem.json --env production"
+    }
+  }
+}

@@ -21,6 +21,7 @@ node_modules/
 www/css
 dist/
 config.json
+ecosystem.json
 test/coverage/report.html
 ss--*.svg
 _ss-*.html
