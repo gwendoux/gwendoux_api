@@ -21,7 +21,10 @@
     "posttest": "npm run lint",
     "test": "mocha test/test.js",
     "prestart:watch": "npm run lint",
-    "start:watch": "nodemon"
+    "start:watch": "nodemon",
+    "deploy:init": "pm2 ecosystem",
+    "deploy:setup": "pm2 deploy ecosystem.json production setup",
+    "deploy": "pm2 deploy ecosystem.json production"
   },
   "devDependencies": {
     "blanket": "1.2.1",
