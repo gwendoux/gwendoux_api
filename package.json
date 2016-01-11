@@ -25,7 +25,8 @@
     "start:watch": "nodemon",
     "deploy:init": "pm2 ecosystem",
     "deploy:setup": "pm2 deploy ecosystem.json production setup",
-    "deploy": "pm2 deploy ecosystem.json production"
+    "deploy": "pm2 deploy ecosystem.json production",
+    "postinstall": "npm prune"
   },
   "devDependencies": {
     "blanket": "1.2.1",
