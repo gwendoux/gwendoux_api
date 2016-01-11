@@ -21,6 +21,7 @@
     "posttest": "npm run lint",
     "test": "mocha test/test.js",
     "prestart:watch": "npm run lint",
+    "start": "node app.js --harmony",
     "start:watch": "nodemon",
     "deploy:init": "pm2 ecosystem",
     "deploy:setup": "pm2 deploy ecosystem.json production setup",
