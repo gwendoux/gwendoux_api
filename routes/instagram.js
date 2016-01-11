@@ -1,4 +1,4 @@
-'use strict';
+
 const config = require('../lib/config');
 
 const ig = require('instagram-node').instagram();
@@ -19,7 +19,7 @@ function tag(req, res) {
             logger.debug(err);
             throw err;
         }
-        let coffeeBeans = result.filter(function(photo) {
+        var coffeeBeans = result.filter(function(photo) {
             return photo.tags.indexOf(req.params.tag) > -1;
         }).map(function(photo) {
             return {

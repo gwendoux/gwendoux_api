@@ -1,4 +1,4 @@
-'use strict';
+
 const app = require('../app');
 //const bodyParser = require('body-parser');
 //const jsonParser = bodyParser.json();

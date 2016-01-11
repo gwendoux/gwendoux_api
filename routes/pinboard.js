@@ -1,4 +1,4 @@
-'use strict';
+
 const parser = require('parse-rss');
 const request = require('request');
 const moment = require('moment');
@@ -18,7 +18,7 @@ function feed(req, res) {
             logger.debug(err);
             throw err;
         }
-        let dataFeed = json.slice(0, 3).map(function(json) {
+        var dataFeed = json.slice(0, 3).map(function(json) {
             return {
                 title: escape(json.title),
                 desc: escape(json.description),
