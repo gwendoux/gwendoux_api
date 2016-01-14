@@ -28,7 +28,7 @@ function feed(req, res) {
             };
         });
         res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(dataFeed, null, 2));
+        res.jsonp(dataFeed);
     });
 }
 
@@ -38,7 +38,7 @@ function getData(req, res) {
             throw err;
         }
         res.setHeader('Content-Type', 'application/json');
-        res.end(data);
+        res.jsonp(data);
     });
 }
 

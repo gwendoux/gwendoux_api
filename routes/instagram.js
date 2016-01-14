@@ -28,8 +28,8 @@ function tag(req, res) {
                 date: moment(photo.created_time, 'X').fromNow()
             };
         });
-        res.setHeader('Content-Type', 'text/plain');
-        res.end(JSON.stringify(coffeeBeans, null, 2));
+        res.setHeader('Content-Type', 'application/json');
+        res.jsonp(coffeeBeans);
     });
 }
 
@@ -40,8 +40,8 @@ function likes(req, res) {
             logger.debug(err);
             throw err;
         }
-        res.setHeader('Content-Type', 'text/plain');
-        res.end(JSON.stringify(data, null, 2));
+        res.setHeader('Content-Type', 'application/json');
+        res.jsonp(data);
     });
 }
 
