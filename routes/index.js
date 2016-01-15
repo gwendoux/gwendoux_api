@@ -16,3 +16,8 @@ app.route('/v1/links/feed')
     .get(pinboard.feed);
 app.route('/v1/links/')
     .get(pinboard.getData);
+
+
+app.get('*', function(req, res){
+    res.sendfile('./template/404.html');
+});
