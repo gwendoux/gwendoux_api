@@ -26,7 +26,8 @@
     "deploy:init": "pm2 ecosystem",
     "deploy:setup": "pm2 deploy ecosystem.json production setup",
     "deploy": "pm2 deploy ecosystem.json production",
-    "postinstall": "npm prune"
+    "postinstall": "npm prune",
+    "safefreeze": "rimraf node_modules npm-shrinkwrap.json && npm install && npm dedupe && npm test && npm shrinkwrap"
   },
   "devDependencies": {
     "blanket": "1.2.1",
@@ -37,6 +38,7 @@
     "must": "0.13.1",
     "nodemon": "1.8.1",
     "parallelshell": "2.0.0",
+    "rimraf": "2.5.0",
     "supertest": "1.1.0",
     "supertest-as-promised": "2.0.2",
     "tracer": "0.8.2"
