@@ -1,6 +1,6 @@
 {
   "name": "gwendoux_api",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "my personal website",
   "main": "app.js",
   "repository": "git@github.com:gwendoux/gwendoux_api.git",
