@@ -5,14 +5,14 @@ const app = require('../app');
 
 // get photos with a specific tag from a dedicated user
 const instagram = require('./instagram');
-app.route('/api/photos/:tag')
+app.route('/v1/photos/:tag')
    .get(instagram.tag);
-app.route('/api/likes/')
+app.route('/v1/photos/likes')
    .get(instagram.likes);
 
 // get links from pinboard API or RSS
 const pinboard = require('./pinboard');
-app.route('/api/feed')
+app.route('/v1/links/feed')
     .get(pinboard.feed);
-app.route('/api/pin')
+app.route('/v1/links/')
     .get(pinboard.getData);
