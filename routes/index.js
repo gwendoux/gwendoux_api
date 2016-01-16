@@ -1,7 +1,8 @@
 
-const app = require('../app');
-//const bodyParser = require('body-parser');
-//const jsonParser = bodyParser.json();
+const path = require('path');
+const app_dir_path = path.join(__dirname, '..');
+const app = require(app_dir_path + '/app');
+
 
 // get photos with a specific tag from a dedicated user
 const instagram = require('./instagram');
@@ -19,5 +20,5 @@ app.route('/v1/links/')
 
 
 app.get('*', function(req, res){
-    res.sendfile('./template/404.html');
+    res.sendFile(app_dir_path + '/template/404.html');
 });
