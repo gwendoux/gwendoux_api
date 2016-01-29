@@ -4,6 +4,9 @@ const app_dir_path = path.join(__dirname, '..');
 const app = require(app_dir_path + '/app');
 
 
+app.get('/', function(req, res){
+    res.sendFile(app_dir_path + '/template/404.html');
+});
 // get photos with a specific tag from a dedicated user
 const instagram = require('./instagram');
 app.route('/v1/photos/:tag')
