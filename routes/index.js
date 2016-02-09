@@ -1,18 +1,27 @@
 
-const app = require('../app');
-//const bodyParser = require('body-parser');
-//const jsonParser = bodyParser.json();
+const path = require('path');
+const app_dir_path = path.join(__dirname, '..');
+const app = require(app_dir_path + '/app');
 
+
+app.get('/', function(req, res){
+    res.sendFile(app_dir_path + '/template/404.html');
+});
 // get photos with a specific tag from a dedicated user
 const instagram = require('./instagram');
-app.route('/api/photos/:tag')
+app.route('/v1/photos/:tag')
    .get(instagram.tag);
-app.route('/api/likes/')
+app.route('/v1/photos/likes')
    .get(instagram.likes);
 
 // get links from pinboard API or RSS
 const pinboard = require('./pinboard');
-app.route('/api/feed')
+app.route('/v1/links/feed')
     .get(pinboard.feed);
-app.route('/api/pin')
+app.route('/v1/links/')
     .get(pinboard.getData);
+
+
+app.get('*', function(req, res){
+    res.sendFile(app_dir_path + '/template/404.html');
+});

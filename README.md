@@ -1,23 +1,31 @@
-gwendoux.com -- personal website
---------------------------------
+gwendoux.com -- personal website “API”
+--------------------------------------
 
-## How to install
+## Requirement
 
-   * copy config.json.default to config.json
-   * added correct value to config
-   * install node version as in package.json (via nvm if installed)
-   * install all dependencies
+    * server with sudo user
+    * node and npm install (nvm is highly recommended)
+    * pm2 installed both on client and server
 
-    $ npm install
+## Install
 
-   * all scripts are availaible as followed
+### User console
+
+    * copy config.json.default to config.json
+    * added correct value to config
+    * npm install
 
 | script name | scripts called | pre | post | description |
 |-------------|----------------|-----|------|-------------|
-| lint        | grunt jshint   |     |      | run linting service |
-| test        | grunt test     | lint |     | run mocha test and blanket code coverage |
-| start       | node server    | lint |     | run server |
-| start-watch | grunt start-watch |  |  | run server with nodemon watch |
-| build       | grunt build |  |  | build front resources |
-| build-watch | grunt build-watch |  |   | build and watch front resources |
-| package | grunt copy:dist | build | grunt appcache | package app for deployment |
+| lint        | eslint         |     |      | run linting service |
+| test        | mocha test/test.js | lint |     | run test and code coverage |
+| start       | node app.js    | lint |     | run application |
+| start:watch | nodemon |  |  | run application with nodemon watch |
+| deploy:setup | pm2 deploy ecosystem.json production setup | | | setup deployment on the distant machine |
+| deploy | pm2 deploy ecosystem.json production | | | deploy application |
+
+### Server console
+
+   * copy config.json.default to config.json
+   * added correct value to config
+   * configure nginx with config conf/nginx.conf
