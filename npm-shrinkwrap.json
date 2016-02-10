@@ -1,6 +1,6 @@
 {
   "name": "gwendoux_api",
-  "version": "1.5.4",
+  "version": "1.6.0",
   "dependencies": {
     "body-parser": {
       "version": "1.14.2",
