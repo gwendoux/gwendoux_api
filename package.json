@@ -20,6 +20,7 @@
     "lint:fix": "eslint --fix .",
     "posttest": "npm run lint",
     "test": "NODE_ENV=test mocha test/test.js",
+    "precoverage": "rm -rf ./test/coverage",
     "coverage": "NODE_ENV=test istanbul cover _mocha test/test.js",
     "coverage:report": "open ./test/coverage/lcov-report/index.html",
     "prestart:watch": "npm run lint",
