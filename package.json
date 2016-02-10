@@ -1,7 +1,7 @@
 {
   "name": "gwendoux_api",
   "version": "1.5.4",
-  "description": "my personal website",
+  "description": "my personal website api",
   "main": "app.js",
   "repository": "git@github.com:gwendoux/gwendoux_api.git",
   "keywords": [
@@ -19,7 +19,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "posttest": "npm run lint",
-    "test": "mocha test/test.js",
+    "test": "NODE_ENV=test mocha test/test.js",
+    "coverage": "NODE_ENV=test istanbul cover _mocha test/test.js",
+    "postcoverage": "open ./test/coverage/report.html",
     "prestart:watch": "npm run lint",
     "start": "node app.js",
     "start:watch": "nodemon",
@@ -27,31 +29,30 @@
     "deploy:setup": "pm2 deploy ecosystem.json production setup",
     "deploy": "pm2 deploy ecosystem.json production",
     "postinstall": "npm prune",
-    "safefreeze": "rimraf node_modules npm-shrinkwrap.json && npm install && npm dedupe && npm test && npm shrinkwrap"
+    "safefreeze": "rm -rf node_modules npm-shrinkwrap.json && npm install && npm dedupe && npm test && npm shrinkwrap"
   },
   "devDependencies": {
-    "blanket": "1.2.1",
     "commander": "2.9.0",
     "convict": "1.0.2",
     "eslint": "1.10.3",
-    "mocha": "2.3.4",
+    "istanbul": "0.4.2",
+    "mocha": "2.4.5",
     "must": "0.13.1",
     "nodemon": "1.8.1",
     "parallelshell": "2.0.0",
-    "rimraf": "2.5.0",
     "supertest": "1.1.0",
     "supertest-as-promised": "2.0.2",
-    "tracer": "0.8.2"
+    "tracer": "0.8.3"
   },
   "dependencies": {
     "body-parser": "1.14.2",
     "escape-html": "1.0.3",
-    "express": "4.13.3",
+    "express": "4.13.4",
     "instagram-node": "0.5.8",
     "loglevel": "1.4.0",
-    "moment": "2.11.1",
+    "moment": "2.11.2",
     "morgan": "1.6.1",
     "parse-rss": "1.0.3",
-    "request": "2.67.0"
+    "request": "2.69.0"
   }
 }
