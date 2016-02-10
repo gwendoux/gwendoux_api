@@ -9,7 +9,7 @@ app.get('/', function(req, res){
 });
 // get photos with a specific tag from a dedicated user
 const instagram = require('./instagram');
-app.route('/v1/photos/:tag')
+app.route('/v1/photos/tag/:tag')
    .get(instagram.tag);
 app.route('/v1/photos/likes')
    .get(instagram.likes);

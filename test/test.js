@@ -2,26 +2,6 @@ require('must');
 var request = require('supertest-as-promised');
 var app = require('../app');
 
-describe("get 404", function() {
-    it("must return 404 for index page", function() {
-        return request(app).get('/')
-            .expect(404)
-            .then(function(res) {
-                res.must.exist();
-                res.text.must.contain('error 404');
-            });
-    });
-
-    it("must return 404 for random page", function() {
-        return request(app).get('/random/page')
-            .expect(404)
-            .then(function(res) {
-                res.must.exist();
-                res.text.must.contain('error 404');
-            });
-    });
-});
-
 describe("get links from Pinboard", function() {
     it("must return links from pinboard rss", function() {
         this.timeout(5000);
@@ -47,7 +27,7 @@ describe("get links from Pinboard", function() {
 
 describe("get photos from Instagram API", function() {
     it("must return at least 1 result with a specific hashtag", function() {
-        return request(app).get('/v1/photos/coffeeoftheday')
+        return request(app).get('/v1/photos/tag/coffeeoftheday')
             .expect(200)
             .then(function(res) {
                 res.must.be.json;
@@ -63,6 +43,26 @@ describe("get photos from Instagram API", function() {
                 res.must.be.json;
                 res.must.exist();
                 res.text.must.not.be.empty();
+            });
+    });
+});
+
+describe("test errors", function() {
+    it("must return 404 for index page", function() {
+        return request(app).get('/')
+            .expect(404)
+            .then(function(res) {
+                res.must.exist();
+                res.text.must.contain('error 404');
+            });
+    });
+
+    it("must return 404 for random page", function() {
+        return request(app).get('/random/page')
+            .expect(404)
+            .then(function(res) {
+                res.must.exist();
+                res.text.must.contain('error 404');
             });
     });
 });
