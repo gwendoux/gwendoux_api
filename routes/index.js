@@ -5,7 +5,7 @@ const app = require(app_dir_path + '/app');
 
 
 app.get('/', function(req, res){
-    res.sendFile(app_dir_path + '/template/404.html');
+    res.status(404).sendFile(app_dir_path + '/template/404.html');
 });
 // get photos with a specific tag from a dedicated user
 const instagram = require('./instagram');
@@ -23,5 +23,5 @@ app.route('/v1/links/')
 
 
 app.get('*', function(req, res){
-    res.sendFile(app_dir_path + '/template/404.html');
+    res.status(404).sendFile(app_dir_path + '/template/404.html');
 });
