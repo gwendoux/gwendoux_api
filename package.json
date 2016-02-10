@@ -21,7 +21,7 @@
     "posttest": "npm run lint",
     "test": "NODE_ENV=test mocha test/test.js",
     "coverage": "NODE_ENV=test istanbul cover _mocha test/test.js",
-    "postcoverage": "open ./test/coverage/report.html",
+    "coverage:report": "open ./test/coverage/lcov-report/index.html",
     "prestart:watch": "npm run lint",
     "start": "node app.js",
     "start:watch": "nodemon",
