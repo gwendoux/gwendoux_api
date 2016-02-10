@@ -20,6 +20,7 @@ node_modules/
 *.min.js
 www/css
 dist/
+coverage/
 config.json
 ecosystem.json
 test/coverage/report.html
