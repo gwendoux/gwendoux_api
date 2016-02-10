@@ -1,10 +1,9 @@
 require('must');
 var request = require('supertest-as-promised');
-//var config = require('../lib/config');
 var app = require('../app');
 
-describe("get links from pinboard rss feed", function() {
-    it("must return links", function() {
+describe("get links from Pinboard", function() {
+    it("must return links from pinboard rss", function() {
         this.timeout(5000);
         return request(app).get('/api/feed')
             .expect(200)
@@ -14,10 +13,8 @@ describe("get links from pinboard rss feed", function() {
                 res.text.must.not.be.empty();
             });
     });
-});
 
-describe("get links from pinboard api", function() {
-    it("must return links", function() {
+    it("must return links from pinboard api", function() {
         return request(app).get('/api/pin')
             .expect(200)
             .then(function(res) {
@@ -28,8 +25,8 @@ describe("get links from pinboard api", function() {
     });
 });
 
-describe("get photos from instagram with a specific hashtag", function() {
-    it("must return at least 1 result", function() {
+describe("get photos from Instagram API", function() {
+    it("must return at least 1 result with a specific hashtag", function() {
         return request(app).get('/api/photos/coffeeoftheday')
             .expect(200)
             .then(function(res) {
@@ -38,11 +35,9 @@ describe("get photos from instagram with a specific hashtag", function() {
                 res.text.must.not.be.empty();
             });
     });
-});
 
 
-describe("get photos liked by the specific user", function() {
-    it("must return at least 1 result", function() {
+    it("must return at least 1 result liked by the specific user", function() {
         return request(app).get('/api/likes')
             .expect(200)
             .then(function(res) {
