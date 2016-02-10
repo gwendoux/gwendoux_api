@@ -4,7 +4,7 @@ const config = require('../lib/config');
 const ig = require('instagram-node').instagram();
 const escape = require('escape-html');
 const moment = require('moment');
-const logger = config.getLogger();
+// const logger = config.getLogger();
 
 ig.use({
     access_token: config.get('instagram_ACCESS_TOKEN'),
@@ -16,7 +16,6 @@ ig.use({
 function tag(req, res) {
     ig.user_self_media_recent(function(err, result) {
         if (err) {
-            logger.debug(err);
             throw err;
         }
         var coffeeBeans = result.filter(function(photo) {
@@ -37,7 +36,6 @@ function tag(req, res) {
 function likes(req, res) {
     ig.user_self_liked(function(err, data) {
         if (err) {
-            logger.debug(err);
             throw err;
         }
         res.setHeader('Content-Type', 'application/json');

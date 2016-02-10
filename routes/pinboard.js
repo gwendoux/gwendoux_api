@@ -6,7 +6,7 @@ const config = require('../lib/config');
 const url = require('url');
 const escape = require('escape-html');
 
-const logger = config.getLogger();
+// const logger = config.getLogger();
 const Pinboard_data = config.get('pinboard_feed_url');
 
 const Pinboard_API_Token = config.get('pinboard_API_TOKEN');
@@ -15,7 +15,6 @@ const Pinboard_API_Endpoint = 'https://api.pinboard.in/v1/posts/recent?auth_toke
 function feed(req, res) {
     parser(Pinboard_data, function(err, json) {
         if (err) {
-            logger.debug(err);
             throw err;
         }
         var dataFeed = json.slice(0, 3).map(function(json) {
