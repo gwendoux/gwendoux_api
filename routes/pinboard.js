@@ -1,7 +1,6 @@
 
 const parser = require('parse-rss');
 const request = require('request');
-const moment = require('moment');
 const config = require('../lib/config');
 const url = require('url');
 const escape = require('escape-html');
@@ -22,7 +21,7 @@ function feed(req, res) {
                 title: escape(json.title),
                 desc: escape(json.description),
                 url: json.link,
-                date: moment(json.date).fromNow(),
+                date: json.date,
                 source: url.parse(json.link,true).host
             };
         });

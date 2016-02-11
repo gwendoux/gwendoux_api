@@ -51,7 +51,6 @@
     "express": "4.13.4",
     "instagram-node": "0.5.8",
     "loglevel": "1.4.0",
-    "moment": "2.11.2",
     "morgan": "1.6.1",
     "parse-rss": "1.0.3",
     "request": "2.69.0"
