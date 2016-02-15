@@ -13,7 +13,7 @@
   "author": "gwendoux",
   "license": "ISC",
   "engines": {
-    "node": "4.2.3"
+    "node": "4.3.0"
   },
   "scripts": {
     "lint": "eslint .",
