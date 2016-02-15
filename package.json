@@ -1,6 +1,6 @@
 {
   "name": "gwendoux_api",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "my personal website api",
   "main": "app.js",
   "repository": "git@github.com:gwendoux/gwendoux_api.git",
@@ -34,19 +34,19 @@
   },
   "devDependencies": {
     "commander": "2.9.0",
-    "convict": "1.0.2",
-    "eslint": "1.10.3",
+    "convict": "1.1.2",
+    "eslint": "2.0.0",
     "istanbul": "0.4.2",
     "mocha": "2.4.5",
     "must": "0.13.1",
     "nodemon": "1.8.1",
     "parallelshell": "2.0.0",
-    "supertest": "1.1.0",
+    "supertest": "1.2.0",
     "supertest-as-promised": "2.0.2",
     "tracer": "0.8.3"
   },
   "dependencies": {
-    "body-parser": "1.14.2",
+    "body-parser": "1.15.0",
     "escape-html": "1.0.3",
     "express": "4.13.4",
     "instagram-node": "0.5.8",
