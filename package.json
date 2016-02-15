@@ -41,6 +41,7 @@
     "must": "0.13.1",
     "nodemon": "1.8.1",
     "parallelshell": "2.0.0",
+    "pm2": "1.0.1",
     "supertest": "1.2.0",
     "supertest-as-promised": "2.0.2",
     "tracer": "0.8.3"
