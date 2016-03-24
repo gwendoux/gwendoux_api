@@ -50,7 +50,7 @@ function filterData(result) {
             image: {
                 standard: photo.images.standard_resolution.url,
                 thumbnail: photo.images.thumbnail.url,
-                caption: escape(photo.caption.text),
+                caption: photo.caption ? escape(photo.caption.text) : "",
                 origlink: photo.link,
                 date: photo.created_time
             },
