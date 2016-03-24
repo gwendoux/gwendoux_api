@@ -4,7 +4,7 @@ var app = require('../app');
 
 describe("get links from Pinboard", function() {
     it("must return links from pinboard rss", function() {
-        this.timeout(5000);
+        this.timeout(10000);
         return request(app).get('/v1/links/feed')
             .expect(200)
             .then(function(res) {
