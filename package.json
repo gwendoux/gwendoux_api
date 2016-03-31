@@ -54,6 +54,7 @@
     "loglevel": "1.4.0",
     "morgan": "1.7.0",
     "parse-rss": "1.0.3",
+    "redis": "2.6.0-0",
     "request": "2.69.0"
   }
 }
