@@ -55,9 +55,9 @@ function getData(req, res) {
                 }
                 content = JSON.parse(data).posts;
                 client.hset('items', 'items', data);
-                // set expiration to 2 minutes
+                // set expiration to 5 minutes
                 // pinboard allows 1 call/minute
-                client.expire('items', 120);
+                client.expire('items', 300);
                 res.jsonp(content);
 
             });
