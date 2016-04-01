@@ -63,9 +63,6 @@ function getData(req, res) {
             });
         }
     });
-
-
-
 }
 
 exports.feed = feed;
