@@ -33,7 +33,7 @@ function feed(req, res) {
     });
 }
 
-function getData(req, res) {
+function recent(req, res) {
     var content;
     client.on('error', function (err) {
         logger.debug('Error:', err);
@@ -66,4 +66,4 @@ function getData(req, res) {
 }
 
 exports.feed = feed;
-exports.getData = getData;
+exports.recent = recent;
