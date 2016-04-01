@@ -19,7 +19,7 @@ const pinboard = require('./pinboard');
 app.route('/v1/links/feed')
     .get(pinboard.feed);
 app.route('/v1/links/')
-    .get(pinboard.getData);
+    .get(pinboard.recent);
 
 
 app.get('*', function(req, res){

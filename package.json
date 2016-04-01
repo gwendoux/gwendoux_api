@@ -19,10 +19,10 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "posttest": "npm run lint",
-    "test": "NODE_ENV=test mocha test/test.js",
-    "precoverage": "rm -rf ./test/coverage",
-    "coverage": "NODE_ENV=test istanbul cover _mocha test/test.js",
-    "coverage:report": "open ./test/coverage/lcov-report/index.html",
+    "unit-test": "NODE_ENV=test mocha test/test.js",
+    "pretest": "rm -rf ./test/coverage",
+    "test": "NODE_ENV=test istanbul cover _mocha test/test.js",
+    "test:report": "open ./test/coverage/lcov-report/index.html",
     "prestart:watch": "npm run lint",
     "start": "node app.js",
     "start:watch": "nodemon",
@@ -54,6 +54,7 @@
     "loglevel": "1.4.0",
     "morgan": "1.7.0",
     "parse-rss": "1.0.3",
+    "redis": "2.6.0-0",
     "request": "2.69.0"
   }
 }
