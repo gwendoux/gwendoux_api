@@ -19,12 +19,12 @@
           "dependencies": {
             "inherits": {
               "version": "2.0.1",
-              "from": "inherits@>=2.0.1 <2.1.0",
+              "from": "inherits@2.0.1",
               "resolved": "https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz"
             },
             "statuses": {
               "version": "1.2.1",
-              "from": "statuses@>=1.2.1 <1.3.0",
+              "from": "statuses@>=1.2.1 <2.0.0",
               "resolved": "https://registry.npmjs.org/statuses/-/statuses-1.2.1.tgz"
             }
           }
@@ -359,6 +359,28 @@
         }
       }
     },
+    "redis": {
+      "version": "2.6.0-1",
+      "from": "redis@2.6.0-1",
+      "resolved": "https://registry.npmjs.org/redis/-/redis-2.6.0-1.tgz",
+      "dependencies": {
+        "double-ended-queue": {
+          "version": "2.1.0-0",
+          "from": "double-ended-queue@>=2.1.0-0 <3.0.0",
+          "resolved": "https://registry.npmjs.org/double-ended-queue/-/double-ended-queue-2.1.0-0.tgz"
+        },
+        "redis-commands": {
+          "version": "1.1.0",
+          "from": "redis-commands@>=1.1.0 <2.0.0",
+          "resolved": "https://registry.npmjs.org/redis-commands/-/redis-commands-1.1.0.tgz"
+        },
+        "redis-parser": {
+          "version": "1.3.0",
+          "from": "redis-parser@>=1.2.0 <2.0.0",
+          "resolved": "https://registry.npmjs.org/redis-parser/-/redis-parser-1.3.0.tgz"
+        }
+      }
+    },
     "request": {
       "version": "2.69.0",
       "from": "request@2.69.0",
@@ -456,7 +478,7 @@
         },
         "extend": {
           "version": "3.0.0",
-          "from": "extend@3.0.0",
+          "from": "extend@>=3.0.0 <3.1.0",
           "resolved": "https://registry.npmjs.org/extend/-/extend-3.0.0.tgz"
         },
         "forever-agent": {
@@ -482,21 +504,14 @@
           "resolved": "https://registry.npmjs.org/har-validator/-/har-validator-2.0.6.tgz",
           "dependencies": {
             "chalk": {
-              "version": "1.1.1",
-              "from": "chalk@>=1.0.0 <2.0.0",
-              "resolved": "https://registry.npmjs.org/chalk/-/chalk-1.1.1.tgz",
+              "version": "1.1.3",
+              "from": "chalk@>=1.1.1 <2.0.0",
+              "resolved": "https://registry.npmjs.org/chalk/-/chalk-1.1.3.tgz",
               "dependencies": {
                 "ansi-styles": {
-                  "version": "2.2.0",
-                  "from": "ansi-styles@>=2.1.0 <3.0.0",
-                  "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-2.2.0.tgz",
-                  "dependencies": {
-                    "color-convert": {
-                      "version": "1.0.0",
-                      "from": "color-convert@>=1.0.0 <2.0.0",
-                      "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-1.0.0.tgz"
-                    }
-                  }
+                  "version": "2.2.1",
+                  "from": "ansi-styles@>=2.2.1 <3.0.0",
+                  "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-2.2.1.tgz"
                 },
                 "escape-string-regexp": {
                   "version": "1.0.5",
@@ -527,7 +542,7 @@
             },
             "is-my-json-valid": {
               "version": "2.13.1",
-              "from": "is-my-json-valid@>=2.10.0 <3.0.0",
+              "from": "is-my-json-valid@>=2.12.4 <3.0.0",
               "resolved": "https://registry.npmjs.org/is-my-json-valid/-/is-my-json-valid-2.13.1.tgz",
               "dependencies": {
                 "generate-function": {
@@ -660,9 +675,9 @@
                   "resolved": "https://registry.npmjs.org/jsbn/-/jsbn-0.1.0.tgz"
                 },
                 "tweetnacl": {
-                  "version": "0.14.1",
+                  "version": "0.14.3",
                   "from": "tweetnacl@>=0.13.0 <1.0.0",
-                  "resolved": "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.1.tgz"
+                  "resolved": "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.3.tgz"
                 },
                 "jodid25519": {
                   "version": "1.0.2",
