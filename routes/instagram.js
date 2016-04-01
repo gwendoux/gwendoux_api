@@ -2,7 +2,6 @@
 const config = require('../lib/config');
 const utilities = require('../lib/photos-utilities');
 const ig = require('instagram-node').instagram();
-const escape = require('escape-html');
 const logger = config.getLogger();
 
 const redis = require("redis");
