@@ -14,7 +14,7 @@ ig.use({
 });
 
 // get photos with a specific tag from a dedicated user
-function tag(req, res) {
+function tag(req, res, next) {
 
     var filterRequest;
     res.setHeader('Content-Type', 'application/json');
@@ -23,7 +23,7 @@ function tag(req, res) {
             logger.info('cache exist');
             client.hget('photos', req.params.tag, function(err, data) {
                 if(err) {
-                    logger.debug(err);
+                    return next(err);
                 }
                 filterRequest = JSON.parse(data);
                 res.jsonp(filterRequest);
@@ -33,7 +33,7 @@ function tag(req, res) {
             logger.debug('tag', req.params.tag);
             ig.user_self_media_recent(function(err, result) {
                 if (err) {
-                    throw err;
+                    return next(err);
                 }
                 filterRequest = utilities.filterDataByTag(result, req.params.tag);
                 client.hset('photos', req.params.tag, JSON.stringify(filterRequest));
@@ -48,10 +48,10 @@ function tag(req, res) {
 }
 
 // get photos liked from a dedicated user
-function likes(req, res) {
+function likes(req, res, next) {
     ig.user_self_liked(function(err, result) {
         if (err) {
-            throw err;
+            return next(err);
         }
         var filterRequest = utilities.filterData(result);
         res.setHeader('Content-Type', 'application/json');

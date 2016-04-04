@@ -14,10 +14,10 @@ const Pinboard_data = config.get('pinboard_feed_url');
 const Pinboard_API_Token = config.get('pinboard_API_TOKEN');
 const Pinboard_API_Endpoint = 'https://api.pinboard.in/v1/posts/recent?auth_token=' + Pinboard_API_Token + '&format=json&count=12';
 
-function feed(req, res) {
+function feed(req, res, next) {
     parser(Pinboard_data, function(err, json) {
         if (err) {
-            throw err;
+            return next(err);
         }
         var dataFeed = json.slice(0, 3).map(function(json) {
             return {
@@ -33,7 +33,7 @@ function feed(req, res) {
     });
 }
 
-function recent(req, res) {
+function recent(req, res, next) {
     var content;
     client.on('error', function (err) {
         logger.debug('Error:', err);
@@ -51,7 +51,7 @@ function recent(req, res) {
         } else {
             request.get(Pinboard_API_Endpoint, function (err, response, data) {
                 if(err) {
-                    throw err;
+                    return next(err);
                 }
                 content = JSON.parse(data).posts;
                 client.hset('items', 'items', data);

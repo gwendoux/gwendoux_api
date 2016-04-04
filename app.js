@@ -9,6 +9,10 @@ const app = module.exports = express();
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(function error(err, req, res, next) {
+    logger.error(err.stack);
+    res.status(500).send({ error: 'Something failed!' });
+});
 
 app.set('env', config.get('env'));
 app.set('port', process.env.PORT || config.get('port'));
