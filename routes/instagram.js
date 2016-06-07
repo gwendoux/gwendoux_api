@@ -1,4 +1,3 @@
-
 const config = require('../lib/config');
 const utilities = require('../lib/photos-utilities');
 const ig = require('instagram-node').instagram();
@@ -47,17 +46,4 @@ function tag(req, res, next) {
     });
 }
 
-// get photos liked from a dedicated user
-function likes(req, res, next) {
-    ig.user_self_liked(function(err, result) {
-        if (err) {
-            return next(err);
-        }
-        var filterRequest = utilities.filterData(result);
-        res.setHeader('Content-Type', 'application/json');
-        res.jsonp(filterRequest);
-    });
-}
-
 exports.tag = tag;
-exports.likes = likes;

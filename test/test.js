@@ -35,16 +35,6 @@ describe("get photos from Instagram API", function() {
                 res.text.must.not.be.empty();
             });
     });
-
-    it("must return at least 1 result liked by the specific user", function() {
-        return request(app).get('/v1/photos/likes')
-            .expect(200)
-            .then(function(res) {
-                res.must.be.json;
-                res.must.exist();
-                res.text.must.not.be.empty();
-            });
-    });
 });
 
 describe("test errors", function() {

@@ -11,8 +11,6 @@ app.get('/', function(req, res){
 const instagram = require('./instagram');
 app.route('/v1/photos/tag/:tag')
    .get(instagram.tag);
-app.route('/v1/photos/likes')
-   .get(instagram.likes);
 
 // get links from pinboard API or RSS
 const pinboard = require('./pinboard');
