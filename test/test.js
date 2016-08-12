@@ -3,16 +3,6 @@ var request = require('supertest-as-promised');
 var app = require('../app');
 
 describe("get links from Pinboard", function() {
-    it("must return links from pinboard rss", function() {
-        this.timeout(10000);
-        return request(app).get('/v1/links/feed')
-            .expect(200)
-            .then(function(res) {
-                res.must.be.json;
-                res.must.exist();
-                res.text.must.not.be.empty();
-            });
-    });
 
     it("must return links from pinboard api", function() {
         return request(app).get('/v1/links')

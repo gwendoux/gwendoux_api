@@ -1,37 +1,14 @@
 const moment = require('moment');
-const parser = require('parse-rss');
 const request = require('request');
 const config = require('../lib/config');
-const url = require('url');
-const escape = require('escape-html');
 
 const redis = require("redis");
 const client = redis.createClient();
 
 const logger = config.getLogger();
-const Pinboard_data = config.get('pinboard_feed_url');
 
 const Pinboard_API_Token = config.get('pinboard_API_TOKEN');
 const Pinboard_API_Endpoint = 'https://api.pinboard.in/v1/posts/recent?auth_token=' + Pinboard_API_Token + '&format=json&count=12';
-
-function feed(req, res, next) {
-    parser(Pinboard_data, function(err, json) {
-        if (err) {
-            return next(err);
-        }
-        var dataFeed = json.slice(0, 3).map(function(json) {
-            return {
-                title: escape(json.title),
-                desc: escape(json.description),
-                url: json.link,
-                date: json.date,
-                source: url.parse(json.link,true).host
-            };
-        });
-        res.setHeader('Content-Type', 'application/json');
-        res.jsonp(dataFeed);
-    });
-}
 
 function recent(req, res, next) {
     var content;
@@ -66,5 +43,4 @@ function recent(req, res, next) {
     });
 }
 
-exports.feed = feed;
 exports.recent = recent;

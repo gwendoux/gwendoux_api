@@ -14,8 +14,6 @@ app.route('/v1/photos/tag/:tag')
 
 // get links from pinboard API or RSS
 const pinboard = require('./pinboard');
-app.route('/v1/links/feed')
-    .get(pinboard.feed);
 app.route('/v1/links/')
     .get(pinboard.recent);
 
