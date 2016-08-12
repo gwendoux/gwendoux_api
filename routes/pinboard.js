@@ -1,4 +1,4 @@
-
+const moment = require('moment');
 const parser = require('parse-rss');
 const request = require('request');
 const config = require('../lib/config');
@@ -54,10 +54,11 @@ function recent(req, res, next) {
                     return next(err);
                 }
                 content = JSON.parse(data).posts;
+                content.map(function(item) {
+                    item.since = moment(item.time).fromNow();
+                });
                 client.hset('items', 'items', data);
-                // set expiration to 5 minutes
-                // pinboard allows 1 call/minute
-                client.expire('items', 300);
+                client.expire('items', 600);
                 res.jsonp(content);
 
             });
