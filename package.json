@@ -29,8 +29,7 @@
     "deploy:init": "pm2 ecosystem",
     "deploy:setup": "pm2 deploy ecosystem.json production setup",
     "deploy": "pm2 deploy ecosystem.json production",
-    "postinstall": "npm prune",
-    "safefreeze": "rm -rf node_modules npm-shrinkwrap.json && npm install && npm dedupe && npm test && npm shrinkwrap"
+    "postinstall": "npm prune"
   },
   "devDependencies": {
     "commander": "2.9.0",
@@ -48,13 +47,11 @@
   },
   "dependencies": {
     "body-parser": "1.15.2",
-    "escape-html": "1.0.3",
     "express": "4.14.0",
     "instagram-node": "0.5.8",
     "loglevel": "1.4.1",
-    "moment": "^2.14.1",
+    "moment": "2.14.1",
     "morgan": "1.7.0",
-    "parse-rss": "1.0.3",
     "redis": "2.6.2",
     "request": "2.74.0"
   }
