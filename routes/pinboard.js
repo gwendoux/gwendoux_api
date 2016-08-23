@@ -22,7 +22,7 @@ function recent(req, res, next) {
                 if(err) {
                     logger.debug(err);
                 }
-                content = JSON.parse(data).posts;
+                content = JSON.parse(data);
                 res.jsonp(content);
             });
         } else {
@@ -34,7 +34,7 @@ function recent(req, res, next) {
                 content.map(function(item) {
                     item.since = moment(item.time).fromNow();
                 });
-                client.hset('items', 'items', data);
+                client.hset('items', 'items', JSON.stringify(content));
                 client.expire('items', 600);
                 res.jsonp(content);
 
