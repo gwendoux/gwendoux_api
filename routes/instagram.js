@@ -4,7 +4,7 @@ const ig = require('instagram-node').instagram();
 const logger = config.getLogger();
 
 const redis = require("redis");
-const client = redis.createClient();
+const client = redis.createClient({no_ready_check: true});
 
 ig.use({
     access_token: config.get('instagram_ACCESS_TOKEN'),

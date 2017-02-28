@@ -3,7 +3,7 @@ const request = require('request');
 const config = require('../lib/config');
 
 const redis = require("redis");
-const client = redis.createClient();
+const client = redis.createClient({no_ready_check: true});
 
 const logger = config.getLogger();
 
