@@ -55,9 +55,6 @@ function tag (req, res, next) {
             .catch(function(err) {
                 logger.debug(err);
             });
-
-
-            res.jsonp({"info": null});
             logger.info('cache does not exist');
             logger.debug('tag', req.params.tag);
             ig.user_self_media_recent(function(err, result) {
