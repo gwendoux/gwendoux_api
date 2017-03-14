@@ -1,5 +1,5 @@
 require('must');
-var request = require('supertest-as-promised');
+var request = require('supertest');
 var app = require('../app');
 
 describe("get links from Pinboard", function() {
