@@ -2,7 +2,6 @@ const config = require('../lib/config');
 const utilities = require('../lib/photos-utilities');
 const ig = require('instagram-node').instagram();
 const logger = config.getLogger();
-const moment = require('moment');
 
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
