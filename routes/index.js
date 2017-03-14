@@ -11,12 +11,14 @@ app.get('/', function(req, res){
 const instagram = require('./instagram');
 app.route('/v1/photos/tag/:tag')
    .get(instagram.tag);
-
+app.route('/v2/photos/')
+      .get(instagram.getRecent);
 // get links from pinboard API or RSS
 const pinboard = require('./pinboard');
 app.route('/v1/links/')
     .get(pinboard.recent);
-
+app.route('/v2/links/')
+    .get(pinboard.getRecent);
 
 app.get('*', function(req, res){
     res.status(404).sendFile(app_dir_path + '/template/404.html');
