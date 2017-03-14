@@ -34,29 +34,29 @@
   },
   "devDependencies": {
     "commander": "2.9.0",
-    "convict": "1.5.0",
+    "convict": "2.0.0",
     "cz-conventional-changelog": "^2.0.0",
-    "eslint": "3.7.1",
+    "eslint": "3.17.1",
     "istanbul": "0.4.5",
-    "mocha": "3.1.2",
-    "must": "0.13.2",
+    "mocha": "3.2.0",
+    "must": "0.13.4",
     "nodemon": "1.11.0",
     "parallelshell": "2.0.0",
-    "pm2": "2.0.18",
-    "supertest": "2.0.0",
-    "supertest-as-promised": "4.0.0",
-    "tracer": "0.8.3"
+    "pm2": "2.4.2",
+    "supertest": "3.0.0",
+    "supertest-as-promised": "4.0.2",
+    "tracer": "0.8.7"
   },
   "dependencies": {
-    "body-parser": "1.15.2",
-    "express": "4.14.0",
+    "body-parser": "1.17.1",
+    "express": "4.15.2",
     "instagram-node": "0.5.8",
     "loglevel": "1.4.1",
-    "moment": "2.15.1",
-    "mongoose": "4.8.6",
-    "morgan": "1.7.0",
-    "redis": "2.6.2",
-    "request": "2.75.0"
+    "moment": "2.17.1",
+    "mongoose": "4.9.0",
+    "morgan": "1.8.1",
+    "redis": "2.7.0",
+    "request": "2.81.0"
   },
   "config": {
     "commitizen": {
