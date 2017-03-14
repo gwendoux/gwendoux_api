@@ -2,6 +2,20 @@ const moment = require('moment');
 const request = require('request');
 const config = require('../lib/config');
 
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+
+var links = mongoose.createConnection('mongodb://localhost/links');
+var Links = links.model('Links', new mongoose.Schema({
+    id: String,
+    title: String,
+    description: String,
+    url: String,
+    tags: String,
+    date: Date,
+    shared: Boolean
+}));
+
 const redis = require("redis");
 const client = redis.createClient({no_ready_check: true});
 
@@ -37,10 +51,21 @@ function recent(req, res, next) {
                 client.hset('items', 'items', JSON.stringify(content));
                 client.expire('items', 600);
                 res.jsonp(content);
-
             });
         }
     });
 }
 
+function getRecent(req, res, next) {
+    res.setHeader('Content-Type', 'application/json');
+    Links.find({}).limit(12).sort({date: -1})
+    .then(function(data){
+        res.jsonp(data);
+    })
+    .catch(function(err) {
+        logger.debug(err);
+    });
+}
+
 exports.recent = recent;
+exports.getRecent = getRecent;
