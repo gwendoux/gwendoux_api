@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gwendoux.com</title>
+    <link>https://www.gwendoux.com</link>
+    <description>Last entries for gwendoux.com</description>
+    <atom:link href="https://api.gwendoux.com/rss/xml" rel="self" type="application/rss+xml" />
+    <language>en-FR</language>
+    <copyright>Copyright {{year}}, gwendoux</copyright>
+    <webMaster>gwen@gwendoux.com</webMaster>
+    <ttl>30</ttl>
+    {% for item in items %}
+    <item>
+      <title><![CDATA[{{item.title}}]]></title>
+      <link>{{item.url}}</link>
+      <description><![CDATA[{{item.content_html | safe}}]]></description>
+      <pubDate>{{item.date_published}}</pubDate>
+      <guid isPermaLink="false">{{item.id}}</guid>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
