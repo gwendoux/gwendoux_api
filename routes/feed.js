@@ -64,4 +64,34 @@ function getXML(req, res, next) {
     });
 }
 
+function getJSON(req, res, next) {
+    var feed = {
+        "version": "https://jsonfeed.org/version/1",
+        "title": "gwendoux.com",
+        "home_page_url": "https://gwendoux.com/",
+        "feed_url": "https://api.gwendoux.com/rss/json/",
+        "description": "Last entries for gwendoux.com",
+        "author": {
+            "name": "gwendoux"
+        },
+        "items": []
+    };
+
+    Promise.all([getRecentPosts(), getRecentPhotos()])
+    .then(function(data) {
+        var items = _.sortBy(data[0].concat(data[1]), 'date').reverse();
+        return items;
+    }).then(function(items) {
+        items = items.slice(0,19);
+        return items;
+    }).then(function(items) {
+        feed.items = items;
+        res.set('Content-Type', 'application/json');
+        res.jsonp(feed);
+    }).catch(function(error) {
+        logger.error(error);
+    });
+}
+
 exports.getXML = getXML;
+exports.getJSON = getJSON;
