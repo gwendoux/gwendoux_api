@@ -25,7 +25,7 @@ function getRecentPhotos() {
         logger.error(err);
     });
 }
-//rest = _.sortBy(_.rest(opportunities_EP_ci).concat(_.rest(opportunities_EP_fi, 2)), 'date');
+
 function getRecentPosts() {
     return models.Links.find({}).limit(20).sort({date: -1})
     .then(function(data){
