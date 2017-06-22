@@ -20,6 +20,10 @@ app.route('/v1/links/')
 app.route('/v2/links/')
     .get(pinboard.getRecent);
 
+const feed = require('./feed');
+app.route('/rss/xml')
+    .get(feed.getXML);
+
 app.get('*', function(req, res){
     res.status(404).sendFile(app_dir_path + '/template/404.html');
 });
