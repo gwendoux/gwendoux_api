@@ -14,9 +14,9 @@ function getRecentPhotos() {
             result[n++] = {
                 id: item.id,
                 title: item.caption,
-                description: '<img src="' + item.image.url + '" title="' + item.caption + '" />',
-                date: item.date,
-                link: item.origlink // send to original link
+                content_html: '<img src="' + item.image.url + '" title="' + item.caption + '" />',
+                date_published: item.date,
+                url: item.origlink // send to original link
             };
         });
         return result;
@@ -35,9 +35,9 @@ function getRecentPosts() {
             result[n++] = {
                 id: item.id,
                 title: item.title,
-                description: item.description,
-                date: item.date,
-                link: item.url // send to original link
+                content_html: item.description,
+                date_published: item.date,
+                url: item.url // send to original link
             };
         });
         return result;
@@ -51,7 +51,7 @@ function getRecentPosts() {
 function getXML(req, res, next) {
     Promise.all([getRecentPosts(), getRecentPhotos()])
     .then(function(data) {
-        var items = _.sortBy(data[0].concat(data[1]), 'date').reverse();
+        var items = _.sortBy(data[0].concat(data[1]), 'date_published').reverse();
         return items;
     }).then(function(items) {
         items = items.slice(0,19);
@@ -65,4 +65,3 @@ function getXML(req, res, next) {
 }
 
 exports.getXML = getXML;
-// exports.getJSON = getJSON;
